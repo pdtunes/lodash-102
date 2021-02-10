@@ -2157,7 +2157,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":"../../../../../usr/local/lib/node_modules/parcel/node_modules/base64-js/index.js","ieee754":"../../../../../usr/local/lib/node_modules/parcel/node_modules/ieee754/index.js","isarray":"../../../../../usr/local/lib/node_modules/parcel/node_modules/isarray/index.js","buffer":"../../../../../usr/local/lib/node_modules/parcel/node_modules/buffer/index.js"}],"node_modules/lodash/lodash.js":[function(require,module,exports) {
+},{"base64-js":"../../../../../usr/local/lib/node_modules/parcel/node_modules/base64-js/index.js","ieee754":"../../../../../usr/local/lib/node_modules/parcel/node_modules/ieee754/index.js","isarray":"../../../../../usr/local/lib/node_modules/parcel/node_modules/isarray/index.js","buffer":"../../../../../usr/local/lib/node_modules/parcel/node_modules/buffer/index.js"}],"../../../node_modules/lodash/lodash.js":[function(require,module,exports) {
 var global = arguments[3];
 var Buffer = require("buffer").Buffer;
 var define;
@@ -19326,9 +19326,11 @@ var define;
 },{"buffer":"../../../../../usr/local/lib/node_modules/parcel/node_modules/buffer/index.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
-var _lodash = require("lodash");
+var _lodash = _interopRequireDefault(require("lodash"));
 
-/* import _ from 'lodash'; */
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/* import { orderBy, isEqual, debounce } from 'lodash';  */
 const products = [{
   name: "Product A",
   price: 15.99
@@ -19342,8 +19344,31 @@ const products = [{
   name: "Product D",
   price: 4.95
 }];
-const orderedProducts = (0, _lodash.orderBy)();
-},{"lodash":"node_modules/lodash/lodash.js"}],"../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+const orderedProducts = _lodash.default.orderBy(products, ["name"], ["asc"]);
+
+console.log(orderedProducts);
+const product1 = {
+  name: "Product",
+  price: 5
+};
+const product2 = {
+  name: "Product",
+  price: 5
+};
+console.log(product1 === product2);
+console.log(_lodash.default.isEqual(product1, product2));
+const input = document.querySelector("input");
+
+function logKey(e) {
+  console.log(e.key);
+}
+
+input.onkeyup = _lodash.default.debounce(logKey, 800, {
+  leading: true,
+  maxWait: 1000
+});
+},{"lodash":"../../../node_modules/lodash/lodash.js"}],"../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -19371,7 +19396,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56030" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59019" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
