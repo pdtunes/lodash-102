@@ -19342,6 +19342,7 @@ const products = [{
   name: "Product D",
   price: 4.95
 }];
+const orderedProducts = (0, _lodash.orderBy)();
 },{"lodash":"node_modules/lodash/lodash.js"}],"../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

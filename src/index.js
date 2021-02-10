@@ -20,3 +20,5 @@ const products = [
 		price: 4.95,
 	},
 ];
+
+const orderedProducts = orderBy()
